@@ -1,25 +1,6 @@
-body {
-    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fart.ngfiles.com%2Fimages%2F2795000%2F2795034_xardkor4ik_ton-618.jpg%3Ff1666453945&f=1&nofb=1&ipt=cb911bda64cb73f32b2dbdd1cf5d0dda6777970cd04a12250479bb9d80b0894d');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes fadeBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 #block {
@@ -73,4 +54,8 @@ body {
     background-color: #0f0f0f;
     transform: scale(1.03);
     box-shadow: 0 0 10px #ff6600;
+}
+#block {
+    position: relative;
+    z-index: 1;
 }

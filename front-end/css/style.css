@@ -1,3 +1,7 @@
+* {
+    padding: 0;
+    margin: 0;
+}
 body {
     background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fabrakadabra.fun%2Fuploads%2Fposts%2F2021-12%2F1640151650_4-abrakadabra-fun-p-chernaya-dira-fon-profilya-stim-4.jpg&f=1&nofb=1&ipt=835bd42d6e74810894d6439b189fdebc5f0879909d2a05e5677b731fb42e8c12');
     background-size: cover;
@@ -9,47 +13,19 @@ body {
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
+    animation: fadeBody 1s ease-in-out forwards;
+    font-family: 'Orbitron', sans-serif;
 }
-
-#block {
-    background: linear-gradient(to right, #000000, #444147);
-    border: 3px solid #000;
-    border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6); /* затемнение */
+    z-index: 0;
 }
-
-#block h2 {
-    color: white;
-    text-align: center;
-    margin: 0;
-}
-
-#block input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #1a1a1a;
-    color: white;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-#block button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3b3737;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#block button:hover {
-    background-color: #383e3f;
+#block input:focus {
+    outline: none;
+    border: 1px solid #ff6600;
+    background-color: #2a2a2a;
+    box-shadow: 0 0 8px #ff6600;
 }
