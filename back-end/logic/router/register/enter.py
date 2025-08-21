@@ -15,7 +15,7 @@ async def login(request: Request):
     password = data.get("password")
 
     db: Session = session_local()
-    user = db.query(User).filter(User.username == username).first()
+    user = db.query(User).filter(User.login == username).first()
     db.close()
 
     if user and bcrypt.checkpw(password.encode('utf-8'), user.password_hash.encode('utf-8')):

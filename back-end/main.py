@@ -12,7 +12,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # роутеры
-app.include_router(register.router)
+app.include_router(register.router, prefix="/api")
 app.include_router(enter.router, prefix="/api")
 
 
@@ -25,20 +25,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ищем фронт
+# Пути
 BASE_DIR = Path(__file__).parent.parent 
-FRONTEND_DIR = BASE_DIR / "front-end"
+FRONTEND_DIR = BASE_DIR / "front-end" / "html"  # теперь указываем сразу html
 
-app.mount("/front-end", StaticFiles(directory=FRONTEND_DIR), name="static")
+# монтируем статику
+app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
-# ищем в фронте рут 
+# рут отдаёт index
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
-    index_file = FRONTEND_DIR / "index.html"
+    index_file = FRONTEND_DIR / "index.html"  # точное имя файла
     if index_file.exists():
         with open(index_file, "r", encoding="utf-8") as file:
             content = file.read()
         return HTMLResponse(content=content)
     else:
-        raise HTTPException(status_code=404, detail="Файл index.html не найден")
+        raise HTTPException(status_code=404, detail="Файл html.index не найден")
+
 
