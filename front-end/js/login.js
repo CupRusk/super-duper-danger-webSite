@@ -10,6 +10,10 @@ document.getElementById("block").addEventListener("submit", async (e) => {
 
 
     });
-    const data = await res.json();
-    console.log(data);
+    if(res.ok){
+        window.location.href = "Happy.html";
+    } else {
+        const errorData = await res.json().catch(() => ({}));
+        alert(errorData.message || "Ошибка входа!");
+    }
 });
