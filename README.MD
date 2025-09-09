@@ -28,13 +28,14 @@ Super-Duper-Danger-Website/
 │
 ├─ back-end/                  # Серверная часть 🖥️
 │  ├─ main.py                 # Запуск сервера 🚀
+│  ├─ down.sh                 # Скачать зависимости 🛜
 │  ├─ logic/
 │  │  ├─ db/                  # Работа с базой данных 💾
 │  │  │  ├─ database.py
 │  │  │  └─ models.py
 │  │  └─ router/              # API маршруты 🌐
 │  │     ├─ ip/
-│  │     │  └─ find_ip.py
+│  │     │  └─ find_ip.py      # Не доделанный добавления IP в Базу данных ❌
 │  │     └─ register/
 │  │        ├─ enter.py
 │  │        └─ register.py
@@ -50,7 +51,8 @@ Super-Duper-Danger-Website/
 Убедитесь, что установлен Python 3.13. Установите библиотеки:
 
 ```bash
-pip install fastapi uvicorn sqlite3
+cd back-end
+./down.sh
 ```
 
 > sqlite3 встроен в Python, но внешние ORM-библиотеки можно установить отдельно.
@@ -60,7 +62,7 @@ pip install fastapi uvicorn sqlite3
 ### 2. Запуск бэкенда 🖥️
 
 ```bash
-python back-end/main.py
+cd back-end && ./down.sh
 ```
 
 Бэкенд будет доступен по адресу `http://127.0.0.1:8000/`.
@@ -91,5 +93,5 @@ front-end/html/index.html
 
 ## Авторы 👨‍💻👨‍💻
 
-* **CupRuska (Денис)** — бэкенд и помощь с фронтендом💻
+* **CupRuska (Денис)** — бэкенд и помощь с фронтендом(от части JSz)💻
 * **Solevoy (Даня)** —  фронт-енд + дизайн 🎨
